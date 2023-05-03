@@ -20,4 +20,19 @@ export const generateOTP = () => {
 export const minutesToSeconds = (minutes: number) => minutes * 60;
 
 
+export const commarisedAmount = (amount: string) => {
+    let arr = [];
+    let strr = [];
+    for (let i = amount.length - 1; i >= 0; i--) {
+      strr.unshift(amount[i]);
+      if (strr.length == 3) {
+        arr.unshift(strr.join(''));
+        strr = [];
+      }
+    }
+    if (strr.length > 0) {
+      arr.unshift(strr.join(''));
+    }
+    return arr.join();
+};
 
