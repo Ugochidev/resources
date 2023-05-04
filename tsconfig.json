@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "moduleResolution": "node",
     "target": "es2020",
     "module": "commonjs",
     "outDir": "./dist",
@@ -10,15 +11,9 @@
     "allowJs": true,
     "resolveJsonModule": true,
     "paths": {
-      "@modules/*": [
-        "modules/*"
-      ],
-      "@config/*": [
-        "config/*"
-      ],
-      "@shared/*": [
-        "shared/*"
-      ]
+      "@modules/*": ["modules/*"],
+      "@config/*": ["config/*"],
+      "@shared/*": ["shared/*"]
     },
     "esModuleInterop": true,
     "experimentalDecorators": true,
@@ -26,10 +21,5 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
   },
-  "exclude": [
-    "node_modules",
-    "coverage",
-    "./*.js",
-    "dist",
-  ]
+  "exclude": ["node_modules", "coverage", "./*.js", "dist", "docker"]
 }
