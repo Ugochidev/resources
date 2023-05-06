@@ -31,19 +31,19 @@ class VerifyPhoneNumberService {
         throw new AppError("Phone Number Exists!", 401);
       }
 
-      const verificationOtpExists = await this.otpRepository.findByPhoneNumber(
-        phone_number
-      );
+      // const verificationOtpExists = await this.otpRepository.findByPhoneNumber(
+      //   phone_number
+      // );
 
-      if (
-        verificationOtpExists &&
-        verificationOtpExists.for == "PHONE_NUMBER_VERIFICATION"
-      ) {
-        verificationOtpExists.otp = generateOTP();
-        await this.otpRepository.save(verificationOtpExists);
+      // if (
+      //   verificationOtpExists &&
+      //   verificationOtpExists.for == "PHONE_NUMBER_VERIFICATION"
+      // ) {
+      //   verificationOtpExists.otp = generateOTP();
+      //   await this.otpRepository.save(verificationOtpExists);
 
-        return { otp: verificationOtpExists.otp };
-      }
+      //   return { otp: verificationOtpExists.otp };
+      // }
 
       const otp = generateOTP();
 
@@ -58,7 +58,7 @@ class VerifyPhoneNumberService {
       };
       console.log(999, phone_number);
 
-      await this.otpRepository.create(payload);
+      // await this.otpRepository.create(payload);
     
 
       return { otp };
