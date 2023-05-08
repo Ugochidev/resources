@@ -1,8 +1,6 @@
 import UserRepository from "../../users/models/repositories/UserRepository";
 import Cache from "../../../shared/services/Redis";
 import IPhoneNumberDTO from "../../users/dtos/IPhoneNumberDTO";
-import IForgotPasswordDTO from "../../users/dtos/IForgotPasswordDTO";
-import IOtpDTO from "../../users/dtos/IOtp";
 import ITempIdDTO from "../../users/dtos/ITempIdDTO";
 import IVerifyPhoneNumberDTO from "../../users/dtos/IVerifyPhoneNumberDTO";
 import AppError from "../../../shared/utils/AppError";
@@ -80,7 +78,7 @@ class VerifyPhoneNumberService {
     };
     const tempId = v4();
 
-    await this.cache.set
+    await this.cache.set(tempId, cachedData.payload);
 
     // await this.otpRepository.update(verificationOtpExists._id, {
     //   data: verificationOtpExists.data,
