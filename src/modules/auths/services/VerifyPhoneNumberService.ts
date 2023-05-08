@@ -1,5 +1,4 @@
 import UserRepository from "../../users/models/repositories/UserRepository";
-import OtpRepository from "../../users/models/repositories/OtpRepository";
 import Cache from "../../../shared/services/Redis";
 import IPhoneNumberDTO from "../../users/dtos/IPhoneNumberDTO";
 import IForgotPasswordDTO from "../../users/dtos/IForgotPasswordDTO";
@@ -12,12 +11,10 @@ import { v4 } from "uuid";
 
 class VerifyPhoneNumberService {
   private userRepository: UserRepository;
-  private otpRepository: OtpRepository;
   private cache: Cache;
 
   constructor() {
     this.userRepository = new UserRepository();
-    this.otpRepository = new OtpRepository();
     this.cache = new Cache();
   }
 
@@ -83,11 +80,13 @@ class VerifyPhoneNumberService {
     };
     const tempId = v4();
 
-    await this.otpRepository.update(verificationOtpExists._id, {
-      data: verificationOtpExists.data,
-    });
+    await this.cache.set
 
-    return { tempId: verificationOtpExists._id };
+    // await this.otpRepository.update(verificationOtpExists._id, {
+    //   data: verificationOtpExists.data,
+    // });
+
+    return { tempId: tempId };
   }
 }
 
