@@ -21,3 +21,6 @@ router.post(
   verifyPhoneNumberValidator,
   verifyPhoneNumber.verifyOtp
 );
+
+
+export default router;
