@@ -17,7 +17,7 @@ class OtpRepository {
     return otp;
   }
 
-  async findByPhoneNumber(phone_number: string,): Promise<IOtpModel | null> {
+  async findByPhoneNumber(phone_number: string): Promise<IOtpModel | null> {
     let payload: any = {
       user: phone_number,
     };
@@ -44,6 +44,11 @@ class OtpRepository {
     return otp;
   }
 
+  async findByTempId(tempId: string): Promise<IOtpModel | null> {
+    const otp = await this.otp.findOne({tempId});
+    return otp;
+  }
+
   async update(id: string, data: object): Promise<IOtpModel | null> {
     const otp = await this.otp.findByIdAndUpdate(id, data, { new: true });
     return otp;
@@ -60,10 +65,10 @@ class OtpRepository {
   }
 
   async deleteUserOtp(user: string, type: string): Promise<null> {
-    const otp = await this.otp.deleteMany({ user, });
+    const otp = await this.otp.deleteMany({ user });
     console.log("otp,", otp);
-    
-    return null
+
+    return null;
   }
 }
 

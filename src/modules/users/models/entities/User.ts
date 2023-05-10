@@ -23,9 +23,6 @@ const UserSchema: Schema = new Schema<IUser>(
       required: true,
       unique: true,
     },
-    email_verified: {
-      type: Boolean,
-    },
     avatar: {
       type: String,
     },
