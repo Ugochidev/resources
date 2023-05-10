@@ -28,7 +28,8 @@ class VerifyPhoneNumberService {
       if (userExists) {
         throw new AppError("Phone Number Exists!", 401);
       }
-      await this.otpRepository.delete(phone_number);
+      await this.otpRepository.deleteByUser(phone_number);
+
       const verificationOtpExists = await this.otpRepository.findByPhoneNumber(
         phone_number
       );
@@ -63,7 +64,6 @@ class VerifyPhoneNumberService {
       //   );
       // }
       // await this.cache.set(phone_number, payload);
-      console.log(999, phone_number);
 
       // await this.otpRepository.create(payload);
 
