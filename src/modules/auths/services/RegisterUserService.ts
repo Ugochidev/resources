@@ -45,7 +45,7 @@ class RegisterUserService {
       email,
     });
 
-    // await this.otpRepository.delete(tempId);
+    await this.otpRepository.deleteTempId(tempId);
 
     return { phone_number: savedData.user };
   }

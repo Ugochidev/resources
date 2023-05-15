@@ -45,7 +45,7 @@ class OtpRepository {
   }
 
   async findByTempId(tempId: string): Promise<IOtpModel | null> {
-    const otp = await this.otp.findOne({tempId});
+    const otp = await this.otp.findOne({ tempId });
     return otp;
   }
 
@@ -64,9 +64,15 @@ class OtpRepository {
     return otp;
   }
 
-  async deleteUserOtp(user: string, type: string): Promise<null> {
+  async deleteUserOtp(user: string): Promise<null> {
     const otp = await this.otp.deleteMany({ user });
     console.log("otp,", otp);
+
+    return null;
+  }
+
+  async deleteTempId(tempId: string): Promise<null> {
+    await this.otp.deleteMany({ tempId });
 
     return null;
   }
