@@ -55,17 +55,6 @@ class VerifyPhoneNumberService {
       };
 
       await this.otpRepository.create(payload);
-      // const cachedData = await this.cache.get(phone_number);
-
-      // if (cachedData) {
-      //   throw new AppError(
-      //     "phone_number  already exist please verify your account..",
-      //     401
-      //   );
-      // }
-      // await this.cache.set(phone_number, payload);
-
-      // await this.otpRepository.create(payload);
 
       return { otp };
     } catch (error: any) {
@@ -114,34 +103,6 @@ class VerifyPhoneNumberService {
 
     return { tempId };
   }
-  //   const verificationOtpExists = await this.otpRepository.findByPhoneNumber(
-  //     phone_number
-  //   );
-  //   // const cachedData = await this.cache.get(phone_number);
-  //   // console.log(675, cachedData);
-
-  //   if (!verificationOtpExists) {
-  //     throw new AppError("Account not found!", 404);
-  //   }
-
-  //   if (cachedData.otp !== otp || Date.now() > cachedData.expiresIn) {
-  //     throw new AppError("OTP Invalid or expired...", 401);
-  //   }
-
-  //   cachedData.payload = {
-  //     phone_number,
-  //     phoneNumberVerified: true,
-  //   };
-  //   const tempId = v4();
-
-  //   await this.cache.set(tempId, cachedData.payload);
-
-  //   // await this.otpRepository.update(verificationOtpExists._id, {
-  //   //   data: verificationOtpExists.data,
-  //   // });
-
-  //   return { tempId: tempId };
-  // }
 }
 
 export default VerifyPhoneNumberService;
