@@ -24,11 +24,7 @@ class LoginUserService {
   async execute({
     phone_number,
     password,
-  }:
-  {
-    phone_number: string;
-    password: string;
-  }): Promise<ICreateSessionDTO> {
+  }: ILoginDTO): Promise<ICreateSessionDTO> {
     const user = await this.userRepository.findByPhoneNumber(phone_number);
 
     if (!user) {
@@ -40,7 +36,6 @@ class LoginUserService {
     if (!passwordMatch) {
       throw new AppError("Incorrect Login Credentials", 401);
     }
-
 
     const access_token = await this.jwt.generateAccessToken({
       _id: user._id,
