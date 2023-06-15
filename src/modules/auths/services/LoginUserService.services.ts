@@ -3,7 +3,7 @@ import UserRepository from "../../users/models/repositories/UserRepository";
 import AppError from "../../../shared/utils/AppError";
 import Bcrypt from "../../../shared/services/Bcrypt";
 import Jwt from "../../../shared/services/JWT";
-import { generateOTP } from "../../../shared/utils";
+// import { generateOTP } from "../../../shared/utils";
 import OtpRepository from "../../users/models/repositories/OtpRepository";
 import ICreateSessionDTO from "../../users/dtos/ICreateSessionDTO"
 // import { Otp } from "../models/entities/Otp";
