@@ -4,7 +4,5 @@ export default celebrate({
   [Segments.BODY]: {
     phone_number: Joi.string().required(),
     password: Joi.string().required(),
-    phone_id: Joi.string(),
-    device_token: Joi.string(),
   },
 });
