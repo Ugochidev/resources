@@ -16,7 +16,7 @@ const PostSchema: Schema = new Schema(
       type: String,
       required: true,
     },
-    attachment: {
+    attachments: {
       type: String,
     },
   },

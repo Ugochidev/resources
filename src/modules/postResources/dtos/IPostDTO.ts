@@ -3,5 +3,5 @@ export default interface IPost {
   user_id: string;
   title: string;
   body: string;
-  attachment?: string;
+  attachments?: any;
 }
