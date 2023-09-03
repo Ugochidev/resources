@@ -44,7 +44,14 @@ class PostService {
         throw new AppError("error occur while uploading doc...");
       }
     }
-    return {};
+       const newPost = await this.postRepository.create({
+         _id,
+         user_id,
+         title,
+         body,
+         attachments,
+       });
+    return {newPost};
   }
 }
 
